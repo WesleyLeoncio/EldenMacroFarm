@@ -52,7 +52,7 @@ $RECYCLE.BIN/
 Debug/*
 !Debug/img/
 Release/*
+
 # Manter a pasta 'img' e seus arquivos, caso ela esteja fora de 'Debug' ou 'Release'
 !img/
 !img/**
-
