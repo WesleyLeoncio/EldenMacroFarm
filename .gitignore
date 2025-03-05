@@ -48,6 +48,11 @@ $RECYCLE.BIN/
 # Ignorar arquivos de lock do sistema
 .lock
 
-# Manter a pasta 'img' e seus arquivos
+# Ignorar tudo dentro de 'Debug' e 'Release', mas manter 'img' dentro de 'Debug'
+Debug/*
+!Debug/img/
+Release/*
+# Manter a pasta 'img' e seus arquivos, caso ela esteja fora de 'Debug' ou 'Release'
 !img/
 !img/**
+

@@ -138,15 +138,40 @@
         }
         private void BackGroundImage()
         {
-            Console.WriteLine(Path.GetDirectoryName("img"));
-            this.BackgroundImage = Image.FromFile(Application.StartupPath + @"\img\background.png");
-            this.BackgroundImageLayout = ImageLayout.Stretch;
+            
+            string path = Application.StartupPath + @"\img\background.png";
+            
+            if (VerificaArquivo(path))
+            {
+                this.BackgroundImage = Image.FromFile(path);
+                this.BackgroundImageLayout = ImageLayout.Stretch;
+            }
         }
 
+        private void IcomImage()
+        {
+            string path = Application.StartupPath + @"\img\icone.ico";
+            if (VerificaArquivo(path))
+            {
+                this.Icon = new Icon(path);
+            }
+        }
+        
+        private bool VerificaArquivo(string arquivo)
+        {
+            if (!File.Exists(arquivo))
+            {
+                MessageBox.Show($"Arquivo não encontrado: {arquivo}");
+                return false;
+            }
+            return true;
+        }
+        
         private void ConfigJanela()
         {
             BackGroundImage();
-            this.Icon = new Icon(Application.StartupPath + @"\img\icone.ico");
+            IcomImage();
         }
+        
     }
 }
