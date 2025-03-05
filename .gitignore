@@ -1,0 +1,53 @@
+﻿# Ignorar pastas de compilação e arquivos gerados
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+*.ilk
+*.sdf
+*.suo
+*.ipch
+*.tlog
+*.lastbuildstate
+
+# Ignorar configurações do Visual Studio
+.vscode/
+*.user
+*.userosscache
+*.sln.docstates
+*.vs/
+
+# Ignorar arquivos de publicação e temporários
+publish/
+*.deploy
+*.publishproj
+*.tmp
+*.bak
+*.swp
+*.swo
+*.log
+
+# Ignorar pacotes do NuGet e dependências
+packages/
+.nuget/
+project.lock.json
+
+# Ignorar arquivos temporários do sistema operacional
+Thumbs.db
+ehthumbs.db
+*.DS_Store
+$RECYCLE.BIN/
+
+# Ignorar cache do JetBrains Rider (se usado)
+.idea/
+*.iml
+
+# Ignorar arquivos de lock do sistema
+.lock
+
+# Manter a pasta 'img' e seus arquivos
+!img/
+!img/**
