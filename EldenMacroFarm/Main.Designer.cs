@@ -1,4 +1,6 @@
-﻿namespace EldenMacroFarm
+﻿using EldenMacroFarm.others;
+
+namespace EldenMacroFarm
 {
     partial class Main
     {
@@ -160,8 +162,13 @@
         private bool VerificaArquivo(string arquivo)
         {
             if (!File.Exists(arquivo))
-            {
-                MessageBox.Show($"Arquivo não encontrado: {arquivo}");
+            {   
+                FileManager.CopyImgToDebug();
+                
+                CustomMessage.MessageYesNo("\u274c Erro Na Operação",
+                    $"Arquivo não encontrado: {arquivo}\n\n" +
+                    "Fechar Aplicação para Atualizar?",
+                    MessageBoxIcon.Error);
                 return false;
             }
             return true;
