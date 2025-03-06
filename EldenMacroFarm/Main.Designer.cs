@@ -45,7 +45,7 @@ namespace EldenMacroFarm
             numericUpDownLoops = CreateNumericUpDown(InputX + 10, Row1Y + TopOffset, 1, 9999, 1);
 
             var lblDelay = CreateLabel("Load (ms):", LabelX, Row2Y + RowSpacing + TopOffset);
-            numericLoadDelay = CreateNumericUpDown(InputX + 10, Row2Y + RowSpacing + TopOffset, 1, 99999, 10000);
+            numericLoadDelay = CreateNumericUpDown(InputX + 10, Row2Y + RowSpacing + TopOffset, 1, 99999, 6000);
             
             lblNumeroR = CreateLabel("Número de Execuções: 0", (this.ClientSize.Width / 2) - 75, 10);
 
