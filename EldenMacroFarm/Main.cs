@@ -37,12 +37,7 @@ public partial class Main : Form
         int loops = (int)numericUpDownLoops.Value;
         int loadDelay = (int)numericLoadDelay.Value;
         
-        if (loops <= 0)
-        {
-            MessageBox.Show("Escolha um número válido de loops!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-        }
-
+      
         _cts = new CancellationTokenSource();
         btnStart.Enabled = false;
         btnStop.Enabled = true;
@@ -71,30 +66,29 @@ public partial class Main : Form
             if (hWnd != IntPtr.Zero)
                 SetForegroundWindow(hWnd);
             
-            await GerarDelay(300);
+            await GerarDelay(1000);
             
-            await AcionarTecla(KeyCode.G, 150, 600, token);
+            await AcionarTecla(KeyCode.W, 3000, 50, token);
             
-            await AcionarTecla(KeyCode.W, 3000, 100, token);
+            await AcionarTecla(KeyCode.A, 500, 50, token);
+            
+            await AcionarTecla(KeyCode.W, 2000, 50, token);
             
             await AcionarTecla(KeyCode.A, 500, 100, token);
             
-            await AcionarTecla(KeyCode.W, 2000, 100, token);
+            await AcionarTecla(KeyCode.W, 950, 50, token);
             
-            await AcionarTecla(KeyCode.A, 490, 100, token);
+            await AcionarTecla(KeyCode.F, 0, 5700, token);
             
-            await AcionarTecla(KeyCode.W, 1000, 100, token);
+            await AcionarTecla(KeyCode.M, 0, 50, token);
             
-            await AcionarTecla(KeyCode.F, 100, 6000, token);
+            await AcionarTecla(KeyCode.M, 0, 50, token);
             
-            await AcionarTecla(KeyCode.M, 5, 100, token);
+            await AcionarTecla(KeyCode.F, 0, 50, token);
+           
+            await AcionarTecla(KeyCode.E, 100, 100, token);
             
-            await AcionarTecla(KeyCode.S, 5, 100, token);
-            
-            for (int j = 0; j < 4; j++)
-            {
-                await AcionarTecla(KeyCode.E, 100, 200, token);
-            }
+            await AcionarTecla(KeyCode.E, 100, 100, token);
 
             await LiberaTeclas();
             UpdateCounter();
