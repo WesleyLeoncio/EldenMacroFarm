@@ -141,21 +141,20 @@ namespace EldenMacroFarm
         private void BackGroundImage()
         {
             
-            string path = Application.StartupPath + @"\img\background.png";
-            
-            if (VerificaArquivo(path))
+            string backGroundPath = Path.Combine(Application.StartupPath, "img", "background.png");
+            if (VerificaArquivo(backGroundPath))
             {
-                this.BackgroundImage = Image.FromFile(path);
+                this.BackgroundImage = Image.FromFile(backGroundPath);
                 this.BackgroundImageLayout = ImageLayout.Stretch;
-            }
+            } 
         }
 
         private void IcomImage()
         {
-            string path = Application.StartupPath + @"\img\icone.ico";
-            if (VerificaArquivo(path))
+            string iconPath = Path.Combine(Application.StartupPath, "img", "icone.ico");
+            if (VerificaArquivo(iconPath))
             {
-                this.Icon = new Icon(path);
+                this.Icon = new Icon(iconPath);
             }
         }
         
@@ -163,8 +162,6 @@ namespace EldenMacroFarm
         {
             if (!File.Exists(arquivo))
             {   
-                FileManager.CopyImgToDebug();
-                
                 CustomMessage.MessageYesNo("\u274c Erro Na Operação",
                     $"Arquivo não encontrado: {arquivo}\n\n" +
                     "Fechar Aplicação para Atualizar?",

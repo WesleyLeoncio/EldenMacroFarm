@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using EldenMacroFarm.others;
 using WindowsInput;
 using WindowsInput.Events;
 
@@ -55,16 +56,32 @@ public partial class Main : Form
         _cts?.Cancel();
     }
 
+    private static IntPtr VerificarJanela()
+    {
+        string nameApp = "ELDEN RING™";
+        IntPtr hWnd = FindWindow(null, nameApp);
+        if (hWnd == IntPtr.Zero)
+        {
+            CustomMessage.MessageYesNo("\u274c Erro Na Operação",
+                $"Janela do aplicativo: {nameApp} não foi encontrada. \n\n"
+                + "Deseja fechar o sistema ?",MessageBoxIcon.Error);
+        }
+        return hWnd;
+    }
+
     private async Task RunMacro(int loops, int loaDelay, CancellationToken token)
     {
+      
         for (int i = 0; i < loops; i++)
         {
-            if (AtualizarBotao(token)) return;
-
-            // Ativa a janela do Elden Ring
-            IntPtr hWnd = FindWindow(null, "ELDEN RING™");
-            if (hWnd != IntPtr.Zero)
-                SetForegroundWindow(hWnd);
+            if (AtualizarBotao(token)) break;
+            
+            IntPtr hWnd = VerificarJanela();
+            if (hWnd == IntPtr.Zero) break;
+            
+            SetForegroundWindow(hWnd);
+            
+            UpdateCounter();
             
             await GerarDelay(1000);
             
@@ -91,7 +108,7 @@ public partial class Main : Form
             await AcionarTecla(KeyCode.E, 100, 100, token);
 
             await LiberaTeclas();
-            UpdateCounter();
+            
             await GerarDelay(loaDelay);
         }
         AtualizarBotao(token);

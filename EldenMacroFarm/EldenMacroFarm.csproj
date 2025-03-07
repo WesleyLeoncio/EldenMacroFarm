@@ -6,10 +6,17 @@
         <Nullable>enable</Nullable>
         <UseWindowsForms>true</UseWindowsForms>
         <ImplicitUsings>enable</ImplicitUsings>
+        <ApplicationIcon>img/icone.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="WindowsInput" Version="6.4.1" />
+        <PackageReference Include="WindowsInput" Version="6.4.1"/>
+        <None Update="img\*.png">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="img\*.ico">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
 </Project>
